@@ -1,18 +1,18 @@
-# Athlete Appetite
+# A-REEL Board
 
-Athlete Appetite is a website for busy athletes to quickly determine what nutritious meal they should make next. Considering the individual's desired cuisine, personal diet, and time available to make food, we provide personalized recommendations to satisfy their hunger.
+A-REEL Board Descirption
 
 ### Acessing the Website
 
-To access the Athlete Appetite website, please ue the following link: [Website Link]([https://lunaiwa.github.io/AthleteAppetite/](https://lunaiwa.github.io/A.A./))
+To access the Athlete Appetite website, please ue the following link: [Website Link]([[https://lunaiwa.github.io/AthleteAppetite/](https://lunaiwa.github.io/A.A./)](https://a-reel.github.io/a-reelB/))
 
-Or to build our website just **git clone** https://github.com/lunaiwa/AthleteAppetite.git
+Or to build our website just **git clone** https://github.com/a-reel/a-reelB.git
 
 ### Features
 
-**Search Recipies:** You can search recipies within special guidlines and details
+**Detail :** Description
 
-**Make Comments:** A fun feature we want to add is after completing a meal, users have the option to share their experience whether through a rating / comment / picture of their finished product! Adding the social aspect where users can share their meal with others and comment encouraging positive words we hope will be able to create a welcoming community of athletes who prioritize their nutrition well-being!
+**Detail :** Description
 
 ### Feedback and Support
 
@@ -24,5 +24,10 @@ We hope you enjoy our website ! If you have any issues, suggestions, or need ass
 
 ### Credentials
 
-[Emma Shen](https://github.com/e-shen2022) and [Luna Iwazaki](https://github.com/lunaiwa)
+[Aliya Tang](https://github.com/)
+[Raunak Mondal](https://github.com/)
+[Ekam Kaire](https://github.com/)
+[Emma Shen](https://github.com/e-shen2022) 
+[Luna Iwazaki](https://github.com/lunaiwa)
+
 
