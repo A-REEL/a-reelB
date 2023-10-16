@@ -1,6 +1,8 @@
 function sendTextMsg() {
-    const accountSid = 'shh';
-    const authToken = 'shh';
+    const accountSid = config.ACC_SID;
+    const authToken = config.AUTH_TOKEN;
+    //const accountSid = 'AC4b07fc38d18a961aab8bdf8379dd1607';
+    //const authToken = 'cb23c7fb2d619ac7d19fffa4ac96d608';
     const msgBody = document.getElementById('announce').value;
     const toNum =  document.getElementById('number').value;
 
@@ -20,4 +22,8 @@ function sendTextMsg() {
     })
     .then(response => console.log(response))
     .catch(error => console.error('Error:', error));
+}
+
+function displayMsg() {
+
 }

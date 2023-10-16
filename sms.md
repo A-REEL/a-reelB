@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="index.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="config.js"></script>
     <script src="require.js"></script>
     <script src="app.js"></script>
 </head>
