@@ -6,7 +6,7 @@ A-REEL Board Descirption
 
 To access the Athlete Appetite website, please ue the following link: [Website Link]([[https://lunaiwa.github.io/AthleteAppetite/](https://lunaiwa.github.io/A.A./)](https://a-reel.github.io/a-reelB/))
 
-Or to build our website just **git clone** https://github.com/a-reel/a-reelB.git
+Or to build our website just **git clone** [https://github.com/a-reel/a-reelB.git](https://github.com/A-REEL/a-reelB.git)
 
 ### Features
 
