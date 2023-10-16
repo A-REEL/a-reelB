@@ -1,6 +1,6 @@
 function sendTextMsg() {
-    const accountSid = 'AC4b07fc38d18a961aab8bdf8379dd1607';
-    const authToken = 'edfcb65491c30a80d3cbe76dfe246e86';
+    const accountSid = 'shh';
+    const authToken = 'shh';
     const msgBody = document.getElementById('announce').value;
     const toNum =  document.getElementById('number').value;
 
