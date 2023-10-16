@@ -1,7 +1,6 @@
 <!--Start of Website Content-->
 <div class="index-header">
-    <h1>Athlete Appetite</h1>
-    <h2>find your next <br> ...</h2>
+    <h1>A-REEL Board</h1>
     <body>
     <div class="typing-container">
         <span id="text" style="font-family: 'nexa', Arial, sans-serif"></span>
@@ -34,3 +33,4 @@
 
 <script src="text.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
