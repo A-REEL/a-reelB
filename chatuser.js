@@ -1,6 +1,7 @@
  // Import
  const { OpenAI} = require("openai");
 
+ // Make HTTP request asynchronously to prevent blocking main thread & keep app responsive 
  async function generateResponse() {
 
      // Instance of OpenAI class
@@ -8,7 +9,7 @@
      apiKey: "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",
    });
  
-     // Request to OpenAI service to generate response
+     // Function will pause and wait for API call to complete before moving to next step 
      const response = await openai.chat.completions.create({
      model: "gpt-3.5-turbo",
      messages: [
