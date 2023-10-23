@@ -10,9 +10,15 @@ Or to build our website just **git clone** [https://github.com/a-reel/a-reelB.gi
 
 ### Features
 
-**Detail :** Description
+**Task Board :** Description
 
-**Detail :** Description
+**Login :** Description
+
+**SMS Text :** Description
+
+**ChatGPT Suggestions :** Description
+
+**Scheduling Feature :** Description
 
 ### Feedback and Support
 
@@ -20,13 +26,13 @@ We hope you enjoy our website ! If you have any issues, suggestions, or need ass
 
 ### Project Plans
 
-[ISSUE](https://github.com/e-shen2022/APCS_Blog/issues/53#issuecomment-1707610429)
+[SCRUM BOARD]([https://github.com/e-shen2022/APCS_Blog/issues/53#issuecomment-1707610429](https://github.com/orgs/A-REEL/projects/2))
 
 ### Credentials
 
-[Aliya Tang](https://github.com/)
-[Raunak Mondal](https://github.com/)
-[Ekam Kaire](https://github.com/)
+[Aliya Tang](https://github.com/aliyatang)
+[Raunak Mondal](https://github.com/raunak2007)
+[Ekam Kaire](https://github.com/Ekamjot-Kaire)
 [Emma Shen](https://github.com/e-shen2022) 
 [Luna Iwazaki](https://github.com/lunaiwa)
 
