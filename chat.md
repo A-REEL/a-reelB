@@ -6,10 +6,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         #user-input {
-            width: 200px; /* Set the desired width */
+            width: 200px;
         }
         #chat-container {
-            text-align: center; /* Center the content horizontally */
+            text-align: center; 
+        }
+         #send-button {
+            display: block;
+            margin: 20px auto 0;
         }
     </style>
 </head>
