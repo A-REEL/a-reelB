@@ -4,12 +4,22 @@
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="form.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<div id="chat-container">
-    <div id="chat-history"></div>
-    <input type="text" id="user-input" placeholder="Type your message...">
-    <button id="send-button">Send</button>
-</div>
+    <style>
+        #user-input {
+            width: 200px; /* Set the desired width */
+        }
+        #chat-container {
+            text-align: center; /* Center the content horizontally */
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-history"></div>
+        <textarea id="user-input" placeholder="Copy paste your meeting notes..."></textarea>
+        <button id="send-button">Submit</button>
+    </div>
+</body>
 </html>
 
 <script>
@@ -20,6 +30,11 @@
            return str.replace(/^[^a-zA-Z]+/, '');
         }
 
+        function formatResponse(responseText) {
+        // Add a newline before the key phrase "%%Action Items%%"
+            return responseText.replace(/----/g, '\n----');
+        }
+        
         async function sendMessage() {
             const userInput = document.getElementById('user-input').value;
             const chatHistory = document.getElementById('chat-history');
@@ -47,7 +62,8 @@
                 const data = await response.json();
 
                 // Display Chatbot's response
-                chatHistory.innerHTML += `<div>Bot: ${removeSpecialCharsAtStart(data.result)}</div>`;
+                const formattedResponse = formatResponse(removeSpecialCharsAtStart(data.result));
+                chatHistory.innerHTML += `<div>Bot: ${formattedResponse}</div>`;
                 //const responseText = await response.text();
                 //console.log(responseText);
 
