@@ -39,7 +39,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ stockbot: userInput }),
+                    body: JSON.stringify({ meetingchat: userInput }),
                     signal: signal,
                     mode: 'cors' // Add this line to enable CORS
                 });
