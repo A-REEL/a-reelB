@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <title>Sign Up and Sign In</title>
     <style>
@@ -37,6 +39,7 @@
             <button type="submit">Sign Up</button>
         </form>
     </div>
+
     <div class="container">
         <h2>Sign In</h2>
         <form id="signin-form">
@@ -45,21 +48,53 @@
             <button type="submit">Sign In</button>
         </form>
     </div>
+
     <script>
         const signupForm = document.getElementById("signup-form");
         const signinForm = document.getElementById("signin-form");
-        signupForm.addEventListener("submit", function(event) {
+
+        signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signup-username").value;
             const password = document.getElementById("signup-password").value;
             const phoneNumber = document.getElementById("signup-phone").value;
-            // You can add code here to handle the sign-up process, e.g., send data to a server.
+
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password, phoneNumber })
+                });
+
+                // Handle the server's response here
+
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
         });
-        signinForm.addEventListener("submit", function(event) {
+
+        signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signin-username").value;
             const password = document.getElementById("signin-password").value;
-            // You can add code here to handle the sign-in process, e.g., send data to a server.
+
+            try {
+                const response = await fetch('/signin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                // Handle the server's response here
+
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
         });
     </script>
 </body>
+</html>
