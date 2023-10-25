@@ -1,7 +1,6 @@
 // define user data w/ usernames and numbers
 const userData = [
-    { username: "user1", phoneNumber: "+1234567890" },
-    { username: "user2", phoneNumber: "+9876543210" },
+    { username: "aliya.tang", phoneNumber: "+13608238458" }
     // add more user data...
 ];
 
@@ -23,7 +22,7 @@ function sendTextMsg() {
         const username = document.getElementById('username').value; // get entered username
         const toNum =  findPhoneNumberByUsername(username); // retrieve user's phone number
         //const toNum =  document.getElementById('number').value; 
-
+        
         if (toNum) {
             const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
     

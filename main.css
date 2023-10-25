@@ -29,6 +29,12 @@ h3{
     margin: 20px;
     font-family: ravioli;
 }
+/* h4 headings */
+h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
 /*Descriptions under the Subtitles*/
 p {
     color: #5dd761;
@@ -51,3 +57,34 @@ p {
     font-family: nexa;
     src: url("../nexa.ttf");
 }
+
+/* text area */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* send SMS button */
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+/* hover effect button */
+.btn:hover {
+    background-color: #0056b3;
+}
+/* center and margin */
+.containerSMS {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
