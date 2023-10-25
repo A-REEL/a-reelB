@@ -14,8 +14,8 @@
     <br>
     <br>
     <!-- enter number -->
-    <h4>Enter number to send announcement to (format +1234567890):</h4>
-    <textarea id="number" name="number"></textarea>
+    <h4>Enter username to send announcement to:</h4>
+    <textarea id="username" name="number"></textarea>
     <br>
     <!-- send button -->
     <button class="btn" id="sendSMS" onclick="sendTextMsg()">Send SMS</button>
