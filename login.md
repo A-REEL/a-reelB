@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Sign Up and Sign In</title>
@@ -34,12 +33,11 @@
         <h2>Sign Up</h2>
         <form id="signup-form">
             <input type="text" id="signup-username" placeholder="Username" required><br>
-            <input type="password" id="signup-password" placeholder="Password" required><br>
+            <input type="password" id "signup-password" placeholder="Password" required><br>
             <input type="tel" id="signup-phone" placeholder="Phone Number" required><br>
             <button type="submit">Sign Up</button>
         </form>
     </div>
-
     <div class="container">
         <h2>Sign In</h2>
         <form id="signin-form">
@@ -48,52 +46,31 @@
             <button type="submit">Sign In</button>
         </form>
     </div>
-
+    <div class="container" id="user-list-container">
+        <h2>Users</h2>
+        <ul id="user-list"></ul>
+    </div>
     <script>
         const signupForm = document.getElementById("signup-form");
         const signinForm = document.getElementById("signin-form");
-
+        const userList = document.getElementById("user-list");
+        const userListContainer = document.getElementById("user-list-container");
         signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signup-username").value;
             const password = document.getElementById("signup-password").value;
             const phoneNumber = document.getElementById("signup-phone").value;
-
-            try {
-                const response = await fetch('/signup', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, password, phoneNumber })
-                });
-
-                // Handle the server's response here
-
-            } catch (error) {
-                console.error("An error occurred:", error);
-            }
+            // Example: Add user data to the list
+            const userItem = document.createElement("li");
+            userItem.textContent = `Username: ${username}, Password: ${password}, Phone: ${phoneNumber}`;
+            userList.appendChild(userItem);
+            // You can add code here to send data to the server for storage.
         });
-
         signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signin-username").value;
             const password = document.getElementById("signin-password").value;
-
-            try {
-                const response = await fetch('/signin', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ username, password })
-                });
-
-                // Handle the server's response here
-
-            } catch (error) {
-                console.error("An error occurred:", error);
-            }
+            // You can add code here to handle the sign-in process, e.g., send data to a server for authentication.
         });
     </script>
 </body>
