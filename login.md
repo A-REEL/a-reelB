@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <title>Sign Up and Sign In</title>
     <style>
@@ -10,7 +12,7 @@
             text-align: center;
             padding: 20px;
         }
-        input[type="text"], input[type="password"], input[type="tel"] {
+        input[type="text"], input[type="tel"] {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
@@ -32,7 +34,6 @@
         <h2>Sign Up</h2>
         <form id="signup-form">
             <input type="text" id="signup-username" placeholder="Username" required><br>
-            <input type="password" id "signup-password" placeholder="Password" required><br>
             <input type="tel" id="signup-phone" placeholder="Phone Number" required><br>
             <button type="submit">Sign Up</button>
         </form>
@@ -41,7 +42,7 @@
         <h2>Sign In</h2>
         <form id="signin-form">
             <input type="text" id="signin-username" placeholder="Username" required><br>
-            <input type="password" id="signin-password" placeholder="Password" required><br>
+            <!-- Password input removed here -->
             <button type="submit">Sign In</button>
         </form>
     </div>
@@ -71,19 +72,19 @@
         signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signup-username").value;
-            const password = document.getElementById("signup-password").value;
             const phoneNumber = document.getElementById("signup-phone").value;
             // Example: Add user data to the list
             const userItem = document.createElement("li");
-            userItem.textContent = `Username: ${username}, Password: ${password}, Phone: ${phoneNumber}`;
+            userItem.textContent = `Username: ${username}, Phone: ${phoneNumber}`;
             userList.appendChild(userItem);
             // You can add code here to send data to the server for storage.
         });
         signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signin-username").value;
-            const password = document.getElementById("signin-password").value;
+            // Password input removed, so no need to access it here.
             // You can add code here to handle the sign-in process, e.g., send data to a server for authentication.
         });
     </script>
 </body>
+</html>
