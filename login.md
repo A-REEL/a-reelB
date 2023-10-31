@@ -115,14 +115,12 @@
             const userItem = document.createElement("li");
             userItem.textContent = `Username: ${username}, Password: ${password}, Phone: ${phoneNumber}`;
             userList.appendChild(userItem);
-
             // You can add code here to send data to the server for storage.
         });
         signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signin-username").value;
             const password = document.getElementById("signin-password").value;
-
             // You can add code here to handle the sign-in process, e.g., send data to a server for authentication.
         });
     </script>
