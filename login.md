@@ -1,4 +1,3 @@
-<html>
 <head>
     <title>Sign Up and Sign In</title>
     <style>
@@ -33,7 +32,7 @@
         <h2>Sign Up</h2>
         <form id="signup-form">
             <input type="text" id="signup-username" placeholder="Username" required><br>
-            <input type="password" id="signup-password" placeholder="Password" required><br>
+            <input type="password" id "signup-password" placeholder="Password" required><br>
             <input type="tel" id="signup-phone" placeholder="Phone Number" required><br>
             <button type="submit">Sign Up</button>
         </form>
@@ -50,20 +49,11 @@
         <h2>Users</h2>
         <ul id="user-list"></ul>
     </div>
-    <div class="container">
-        <h2>Send Text Message</h2>
-        <form id="send-msg-form">
-            <input type="text" id="username" placeholder="Username" required><br>
-            <input type="text" id="announce" placeholder="Message" required><br>
-            <button type="button" onclick="sendTextMsg()">Send Message</button>
-        </form>
-    </div>
     <script>
         const signupForm = document.getElementById("signup-form");
         const signinForm = document.getElementById("signin-form");
         const userList = document.getElementById("user-list");
         const userListContainer = document.getElementById("user-list-container");
-        const sendMsgForm = document.getElementById("send-msg-form");
         // define user data w/ usernames and numbers
         const userData = [
             { username: "user1", phoneNumber: "+1234567890" },
@@ -77,34 +67,6 @@
                 return user.phoneNumber;
             }
             return null; // return null if username not found
-        }
-        function sendTextMsg() {
-            const accountSid = 'your_account_sid'; // Replace with your Twilio Account SID
-            const authToken = 'your_auth_token'; // Replace with your Twilio Auth Token
-            const msgBody = document.getElementById('announce').value;
-            const username = document.getElementById('username').value; // get entered username
-            const toNum = findPhoneNumberByUsername(username); // retrieve user's phone number
-            if (toNum) {
-                const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
-                const formData = new FormData();
-                formData.append('Body', msgBody);
-                formData.append('To', toNum);
-                formData.append('From', '+18447565575');
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': 'Basic ' + btoa(accountSid + ':' + authToken)
-                    },
-                    body: formData
-                })
-                    .then(response => console.log(response))
-                    .catch(error => console.error('Error:', error));
-            } else {
-                console.log("Username not found or phone number not available.");
-            }
-        }
-        function displayMsg() {
-            // You can implement code to display messages here if needed.
         }
         signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
@@ -125,4 +87,3 @@
         });
     </script>
 </body>
-</html>
