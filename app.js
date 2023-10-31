@@ -1,4 +1,4 @@
-import { userData } from './login.js';
+import userData from './login.js';
 
 function findPhoneNumberByUsername(username) {
     // find user object with the matching username
