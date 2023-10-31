@@ -58,6 +58,7 @@
             <button type="button" onclick="sendTextMsg()">Send Message</button>
         </form>
     </div>
-    <script src="login.js"></script>
+    <script>
+    </script>
 </body>
 </html>
