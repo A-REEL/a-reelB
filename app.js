@@ -1,8 +1,4 @@
-// define user data w/ usernames and numbers
-const userData = [
-    { username: "aliya.tang", phoneNumber: "+13608238458" }
-    // add more user data...
-];
+import { userData } from './login.js';
 
 function findPhoneNumberByUsername(username) {
     // find user object with the matching username
