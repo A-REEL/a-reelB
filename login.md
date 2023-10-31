@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <head>
     <title>Sign Up and Sign In</title>
     <style>
@@ -53,4 +51,3 @@
     </div>
     <script src="login.js"></script>
 </body>
-</html>
