@@ -1,3 +1,4 @@
+<html>
 <head>
     <title>Sign Up and Sign In</title>
     <style>
@@ -49,5 +50,14 @@
         <h2>Users</h2>
         <ul id="user-list"></ul>
     </div>
+    <div class="container">
+        <h2>Send Text Message</h2>
+        <form id="send-msg-form">
+            <input type="text" id="username" placeholder="Username" required><br>
+            <input type="text" id="announce" placeholder="Message" required><br>
+            <button type="button" onclick="sendTextMsg()">Send Message</button>
+        </form>
+    </div>
     <script src="login.js"></script>
 </body>
+</html>
