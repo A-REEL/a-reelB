@@ -44,9 +44,9 @@ const signupForm = document.getElementById("signup-form");
             return !userData.some(user => user.username === username);
         }
         // Function to update the user list
-        function updateUserDataList() {
+        function updateUserDataList(userListData = userData) {
             userList.innerHTML = '';
-            userData.forEach(user => {
+            userListData.forEach(user => {
                 const userItem = document.createElement("li");
                 userItem.textContent = `Username: ${user.username}, Phone: ${user.phoneNumber}`;
                 userList.appendChild(userItem);
