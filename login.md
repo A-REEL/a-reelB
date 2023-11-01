@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
     <title>Sign Up and Sign In</title>
     <style>
@@ -36,6 +38,7 @@
             <input type="tel" id="signup-phone" placeholder="Phone Number" required><br>
             <button type="submit">Sign Up</button>
         </form>
+        <p id="signup-message"></p>
     </div>
     <div class="container">
         <h2>Sign In</h2>
@@ -44,6 +47,7 @@
             <input type="password" id="signin-password" placeholder="Password" required><br>
             <button type="submit">Sign In</button>
         </form>
+        <p id="signin-message"></p>
     </div>
     <div class="container" id="user-list-container">
         <h2>Users</h2>
@@ -70,7 +74,7 @@
             const phoneNumber = document.getElementById("signup-phone").value;
             // Validate input and check if the username is already taken
             if (!isUsernameAvailable(username)) {
-                alert("Username is already taken. Please choose another one.");
+                displaySignupMessage("Username is already taken. Please choose another one.");
                 return;
             }
             // Example: Add user data to the list
@@ -80,6 +84,7 @@
             document.getElementById("signup-password").value = "";
             document.getElementById("signup-phone").value = "";
             updateUserDataList();
+            displaySignupMessage("Sign-up successful!");
         });
         signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
@@ -87,9 +92,9 @@
             const password = document.getElementById("signin-password").value;
             // Implement user authentication logic here.
             if (isUserAuthenticated(username, password)) {
-                alert("Sign-in successful!");
+                displaySigninMessage("Sign-in successful!");
             } else {
-                alert("Invalid username or password. Please try again.");
+                displaySigninMessage("Invalid username or password. Please try again.");
             }
         });
         // Function to check if a username is available
@@ -115,7 +120,18 @@
             const filteredUsers = userData.filter(user => user.username.toLowerCase().includes(searchQuery));
             updateUserDataList(filteredUsers);
         }
+        // Function to display sign-up messages
+        function displaySignupMessage(message) {
+            const signupMessage = document.getElementById("signup-message");
+            signupMessage.textContent = message;
+        }
+        // Function to display sign-in messages
+        function displaySigninMessage(message) {
+            const signinMessage = document.getElementById("signin-message");
+            signinMessage.textContent = message;
+        }
         // Initial user list display
         updateUserDataList();
     </script>
 </body>
+</html>
