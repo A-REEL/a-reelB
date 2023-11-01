@@ -16,7 +16,7 @@ const signupForm = document.getElementById("signup-form");
             const phoneNumber = document.getElementById("signup-phone").value;
             // Validate input and check if the username is already taken
             if (!isUsernameAvailable(username)) {
-                alert("Username is already taken. Please choose another one.");
+                displaySignupMessage("Username is already taken. Please choose another one.");
                 return;
             }
             // Example: Add user data to the list
@@ -26,6 +26,7 @@ const signupForm = document.getElementById("signup-form");
             document.getElementById("signup-password").value = "";
             document.getElementById("signup-phone").value = "";
             updateUserDataList();
+            displaySignupMessage("Sign-up successful!");
         });
         signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
@@ -33,9 +34,9 @@ const signupForm = document.getElementById("signup-form");
             const password = document.getElementById("signin-password").value;
             // Implement user authentication logic here.
             if (isUserAuthenticated(username, password)) {
-                alert("Sign-in successful!");
+                displaySigninMessage("Sign-in successful!");
             } else {
-                alert("Invalid username or password. Please try again.");
+                displaySigninMessage("Invalid username or password. Please try again.");
             }
         });
         // Function to check if a username is available
@@ -60,6 +61,16 @@ const signupForm = document.getElementById("signup-form");
             const searchQuery = searchInput.value.toLowerCase();
             const filteredUsers = userData.filter(user => user.username.toLowerCase().includes(searchQuery));
             updateUserDataList(filteredUsers);
+        }
+        // Function to display sign-up messages
+        function displaySignupMessage(message) {
+            const signupMessage = document.getElementById("signup-message");
+            signupMessage.textContent = message;
+        }
+        // Function to display sign-in messages
+        function displaySigninMessage(message) {
+            const signinMessage = document.getElementById("signin-message");
+            signinMessage.textContent = message;
         }
         // Initial user list display
         updateUserDataList();
