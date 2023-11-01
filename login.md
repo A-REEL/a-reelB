@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>Sign Up and Sign In</title>
@@ -34,7 +34,7 @@
         <h2>Sign Up</h2>
         <form id="signup-form">
             <input type="text" id="signup-username" placeholder="Username" required><br>
-            <input type="password" id="signup-password" placeholder="Password" required><br>
+            <input type="password" id "signup-password" placeholder="Password" required><br>
             <input type="tel" id="signup-phone" placeholder="Phone Number" required><br>
             <button type="submit">Sign Up</button>
         </form>
@@ -102,9 +102,9 @@
             return !userData.some(user => user.username === username);
         }
         // Function to update the user list
-        function updateUserDataList() {
+        function updateUserDataList(userListData = userData) {
             userList.innerHTML = '';
-            userData.forEach(user => {
+            userListData.forEach(user => {
                 const userItem = document.createElement("li");
                 userItem.textContent = `Username: ${user.username}, Phone: ${user.phoneNumber}`;
                 userList.appendChild(userItem);
