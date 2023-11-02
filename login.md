@@ -69,6 +69,7 @@
             { username: "user1", phoneNumber: "+1234567890" },
             { username: "user2", phoneNumber: "+9876543210" },
             // add more user data...
+            //
         ];
         function findPhoneNumberByUsername(username) {
             // find user object with the matching username
@@ -79,7 +80,7 @@
             return null; // return null if username not found
         }
         function sendTextMsg() {
-            const accountSid = 'your_account_sid'; // Replace with your Twilio Account SID
+            const accountSid = 'your_account_sid'; // Replace with your Twilio Account SID3
             const authToken = 'your_auth_token'; // Replace with your Twilio Auth Token
             const msgBody = document.getElementById('announce').value;
             const username = document.getElementById('username').value; // get entered username
@@ -115,14 +116,12 @@
             const userItem = document.createElement("li");
             userItem.textContent = `Username: ${username}, Password: ${password}, Phone: ${phoneNumber}`;
             userList.appendChild(userItem);
-
             // You can add code here to send data to the server for storage.
         });
         signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signin-username").value;
             const password = document.getElementById("signin-password").value;
-
             // You can add code here to handle the sign-in process, e.g., send data to a server for authentication.
         });
     </script>
