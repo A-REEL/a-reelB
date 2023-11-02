@@ -82,39 +82,6 @@
 >>>>>>> 9600ef629e2f4d256c393974fa207811fae36485
         ];
         let signedInUsers = [];
-         function updateSignedInUserList() {
-            signedInUserList.innerHTML = '';
-            signedInUsers.forEach(username => {
-                const userItem = document.createElement("li");
-                userItem.textContent = `Signed In: ${username}`;
-                signedInUserList.appendChild(userItem);
-            });
-        }
-        // Function to add a user to the signed-in list
-        function addUserToSignedInList(username) {
-            if (!signedInUsers.includes(username)) {
-                signedInUsers.push(username);
-                updateSignedInUserList();
-            }
-        }
-        // Function to remove a user from the signed-in list
-        function removeUserFromSignedInList(username) {
-            const index = signedInUsers.indexOf(username);
-            if (index !== -1) {
-                signedInUsers.splice(index, 1);
-                updateSignedInUserList();
-            }
-        }
-        // Existing code for searchUsers function...
-        // Function to handle sign-in success
-        function handleSignInSuccess(username) {
-            displaySigninMessage("Sign-in successful!");
-            addUserToSignedInList(username);
-        }
-        // Function to handle sign-out
-        function handleSignOut(username) {
-            removeUserFromSignedInList(username);
-        }
         signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signup-username").value;
@@ -162,11 +129,43 @@
         function isUserAuthenticated(username, password) {
             return userData.some(user => user.username === username);
         }
+        function updateSignedInUserList() {
+            signedInUserList.innerHTML = '';
+            signedInUsers.forEach(username => {
+                const userItem = document.createElement("li");
+                userItem.textContent = `Signed In: ${username}`;
+                signedInUserList.appendChild(userItem);
+            });
+        }
+        // Function to add a user to the signed-in list
+        function addUserToSignedInList(username) {
+            if (!signedInUsers.includes(username)) {
+                signedInUsers.push(username);
+                updateSignedInUserList();
+            }
+        }
+        // Function to remove a user from the signed-in list
+        function removeUserFromSignedInList(username) {
+            const index = signedInUsers.indexOf(username);
+            if (index !== -1) {
+                signedInUsers.splice(index, 1);
+                updateSignedInUserList();
+            }
+        }
         // Function to search for users by username
         function searchUsers() {
             const searchQuery = searchInput.value.toLowerCase();
             const filteredUsers = userData.filter(user => user.username.toLowerCase().includes(searchQuery));
             updateUserDataList(filteredUsers);
+        }
+        // Function to handle sign-in success
+        function handleSignInSuccess(username) {
+            displaySigninMessage("Sign-in successful!");
+            addUserToSignedInList(username);
+        }
+        // Function to handle sign-out
+        function handleSignOut(username) {
+            removeUserFromSignedInList(username);
         }
         // Function to display sign-up messages
         function displaySignupMessage(message) {
