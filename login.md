@@ -156,7 +156,6 @@
             const msgBody = document.getElementById('announce').value;
             const username = document.getElementById('username').value; // get entered username
             const toNum = findPhoneNumberByUsername(username); // retrieve user's phone number
-
             if (toNum) {
                 const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
                 const formData = new FormData();
