@@ -1,3 +1,6 @@
+const accountSid = process.env.ACC_SID;
+const authToken = process.env.AUTH_TOKEN;
+
 const userData = [
     { username: "aliya.tang", phoneNumber: "+13608238458" },
     { username: "user2", phoneNumber: "+9876543210" },
@@ -14,9 +17,7 @@ function findPhoneNumberByUsername(username) {
 }
 
 function sendTextMsg() {
-        //const accountSid = "AC4b07fc38d18a961aab8bdf8379dd1607";
         const accountSid =  config.ACC_SID;
-        //const authToken = "4bb6a65eb8c05196244109f89043bffa"; 
         const authToken = config.AUTH_TOKEN;
         const msgBody = document.getElementById('announce').value;
         const username = document.getElementById('username').value; // get entered username
