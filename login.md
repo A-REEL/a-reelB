@@ -43,7 +43,7 @@
         <h2>Sign In</h2>
         <form id="signin-form">
             <input type="text" id="signin-username" placeholder="Username" required><br>
-            <input type="password" id "signin-password" placeholder="Password" required><br>
+            <input type="password" id="signin-password" placeholder="Password" required><br>
             <button type="submit">Sign In</button>
         </form>
         <p id="signin-message"></p>
