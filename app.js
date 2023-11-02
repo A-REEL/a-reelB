@@ -1,4 +1,4 @@
-const userData = [
+/*let userData = [
     { username: "aliya.tang", phoneNumber: "+13608238458" },
     { username: "user2", phoneNumber: "+9876543210" },
     // add more user data...
@@ -12,19 +12,32 @@ function findPhoneNumberByUsername(username) {
     }
     return null; // return null if username not found
 }
+*/
+
+class User {
+    initialize(username, phoneNumber) {
+        this.username = username;
+        this.phoneNumber = phoneNumber;
+    }
+
+    getPhoneNumber() {
+        return this.phoneNumber;
+    }
+}
+
 
 function reverse(str) {
     return str.split('').reverse().join('');
 }
 
-function sendTextMsg() {
+function sendTextMsg(user) {
         const accountSid =  "AC4b07fc38d18a961aab8bdf8379dd1607";
         const revAUTH_TOKEN = "84cc737205331515ce8874cb1f01d978"; 
         const authToken = reverse(revAUTH_TOKEN);
         const msgBody = document.getElementById('announce').value;
-        const username = document.getElementById('username').value; // get entered username
-        const toNum =  findPhoneNumberByUsername(username); // retrieve user's phone number
-        //const toNum =  document.getElementById('username').value; 
+        //const username = document.getElementById('username').value; // get entered username
+        //const toNum =  findPhoneNumberByUsername(username); // retrieve user's phone number
+        const toNum =  user.getPhoneNumber(); 
         
         if (toNum) {
             const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
@@ -47,3 +60,10 @@ function sendTextMsg() {
             console.log("Username not found or phone number not available.");
         }
 }
+
+function sendSMSClick() {
+    const user1 = new User();
+    user1.initialize("aliya.tang","+13608238458")
+    sendTextMsg(user1);
+}
+

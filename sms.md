@@ -19,7 +19,7 @@
     <textarea id="username" name="username"></textarea>
     <br>
     <!-- send button -->
-    <button class="btn" id="sendSMS" onclick="sendTextMsg()">Send SMS</button>
+    <button class="btn" id="sendSMS" onclick="sendSMSClick()">Send SMS</button>
 </div>
 </body>
 </html>
