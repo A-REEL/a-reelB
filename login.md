@@ -55,6 +55,10 @@
         <ul id="user-list"></ul>
     </div>
     <div class="container">
+        <h2>Signed-In Users</h2>
+        <ul id="signed-in-user-list"></ul>
+    </div>
+    <div class="container">
         <h2>Send Text Message</h2>
         <input type="text" id="username" placeholder="Recipient's Username">
         <textarea id="announce" placeholder="Message"></textarea>
@@ -64,7 +68,7 @@
         const signupForm = document.getElementById("signup-form");
         const signinForm = document.getElementById("signin-form");
         const userList = document.getElementById("user-list");
-        const userListContainer = document.getElementById("user-list-container");
+        const signedInUserList = document.getElementById("signed-in-user-list");
         const searchInput = document.getElementById("search-user");
         // Define user data with usernames and phone numbers
         let userData = [
@@ -77,6 +81,40 @@
             // Add more user data...
 >>>>>>> 9600ef629e2f4d256c393974fa207811fae36485
         ];
+        let signedInUsers = [];
+         function updateSignedInUserList() {
+            signedInUserList.innerHTML = '';
+            signedInUsers.forEach(username => {
+                const userItem = document.createElement("li");
+                userItem.textContent = `Signed In: ${username}`;
+                signedInUserList.appendChild(userItem);
+            });
+        }
+        // Function to add a user to the signed-in list
+        function addUserToSignedInList(username) {
+            if (!signedInUsers.includes(username)) {
+                signedInUsers.push(username);
+                updateSignedInUserList();
+            }
+        }
+        // Function to remove a user from the signed-in list
+        function removeUserFromSignedInList(username) {
+            const index = signedInUsers.indexOf(username);
+            if (index !== -1) {
+                signedInUsers.splice(index, 1);
+                updateSignedInUserList();
+            }
+        }
+        // Existing code for searchUsers function...
+        // Function to handle sign-in success
+        function handleSignInSuccess(username) {
+            displaySigninMessage("Sign-in successful!");
+            addUserToSignedInList(username);
+        }
+        // Function to handle sign-out
+        function handleSignOut(username) {
+            removeUserFromSignedInList(username);
+        }
         signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signup-username").value;
