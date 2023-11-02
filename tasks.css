@@ -1,0 +1,39 @@
+.board {
+    width: 100%;
+    height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .task {
+    width: 150px;
+    height: 100px;
+    background-color: #2196F3;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    cursor: grab;
+    user-drag: element;
+    user-select: none;
+    position: absolute;
+  }
+  
+  .task input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .task-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
