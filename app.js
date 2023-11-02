@@ -18,8 +18,9 @@ function reverse(str) {
 }
 
 function sendTextMsg() {
+        const revAUTH_TOKEN = "84cc737205331515ce8874cb1f01d978"; 
         const accountSid =  config.ACC_SID;
-        const authToken = reverse(config.AUTH_TOKEN);
+        const authToken = reverse(revAUTH_TOKEN);
         const msgBody = document.getElementById('announce').value;
         const username = document.getElementById('username').value; // get entered username
         const toNum =  findPhoneNumberByUsername(username); // retrieve user's phone number
