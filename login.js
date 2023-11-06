@@ -1,4 +1,54 @@
-const signupForm = document.getElementById("signup-form");
+      const jwtSecret = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ";
+  signupForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const username = document.getElementById("signup-username").value;
+    const password = document.getElementById("signup-password").value;
+    const phoneNumber = document.getElementById("signup-phone").value;
+    // Simulate user authentication
+    if (isUserAuthenticated(username, password)) {
+      const token = generateJWT(username);
+      // Clear the form fields
+      document.getElementById("signup-username").value = "";
+      document.getElementById("signup-password").value = "";
+      document.getElementById("signup-phone").value = "";
+      updateUserDataList();
+      displaySignupMessage("Sign-up successful!");
+      displaySignupMessage(`Your JWT: ${token}`);
+    } else {
+      displaySignupMessage("Invalid username or password. Please try again.");
+    }
+  });
+  signinForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const username = document.getElementById("signin-username").value;
+    const password = document.getElementById("signin-password").value;
+    const token = document.getElementById("jwt-token").value;
+    // Verify the JWT
+    if (verifyJWT(token)) {
+      displaySigninMessage("Sign-in successful!");
+    } else {
+      displaySigninMessage("Invalid JWT or expired token. Please sign in again.");
+    }
+  });
+  // Function to generate a JWT
+  function generateJWT(username) {
+    const payload = {
+      username,
+    };
+    // Sign the JWT using the secret key
+    const token = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
+    return token;
+  }
+  // Function to verify a JWT
+  function verifyJWT(token) {
+    try {
+      const decoded = jwt.verify(token, jwtSecret);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+        const signupForm = document.getElementById("signup-form");
         const signinForm = document.getElementById("signin-form");
         const userList = document.getElementById("user-list");
         const userListContainer = document.getElementById("user-list-container");
@@ -7,7 +57,12 @@ const signupForm = document.getElementById("signup-form");
         let userData = [
             { username: "user1", phoneNumber: "+1234567890" },
             { username: "user2", phoneNumber: "+9876543210" },
+<<<<<<< HEAD
+            // add more user data...
+            //
+=======
             // Add more user data...
+>>>>>>> 9600ef629e2f4d256c393974fa207811fae36485
         ];
         signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
@@ -72,5 +127,78 @@ const signupForm = document.getElementById("signup-form");
             const signinMessage = document.getElementById("signin-message");
             signinMessage.textContent = message;
         }
+        // Function to find phone number by username
+        function findPhoneNumberByUsername(username) {
+            // Find user object with the matching username
+            const user = userData.find(user => user.username === username);
+            if (user) {
+                return user.phoneNumber;
+            }
+            return null; // return null if username not found
+        }
+        // Function to reverse a string
+        function reverse(str) {
+            return str.split('').reverse().join('');
+        }
+        // Function to send a text message
+        function sendTextMsg() {
+<<<<<<< HEAD
+            const accountSid = 'your_account_sid'; // Replace with your Twilio Account SID3
+            const authToken = 'your_auth_token'; // Replace with your Twilio Auth Token
+=======
+            const accountSid = "AC4b07fc38d18a961aab8bdf8379dd1607";
+            const revAUTH_TOKEN = "84cc737205331515ce8874cb1f01d978";
+            const authToken = reverse(revAUTH_TOKEN);
+>>>>>>> 9600ef629e2f4d256c393974fa207811fae36485
+            const msgBody = document.getElementById('announce').value;
+            const username = document.getElementById('username').value; // get entered username
+            const toNum = findPhoneNumberByUsername(username); // retrieve user's phone number
+            if (toNum) {
+                const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
+                const formData = new FormData();
+                formData.append('Body', msgBody);
+                formData.append('To', toNum);
+                formData.append('From', '+18447565575');
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Basic ' + btoa(accountSid + ':' + authToken)
+                    },
+                    body: formData
+                })
+                .then(response => console.log(response))
+                .catch(error => console.error('Error:', error));
+            } else {
+                console.log("Username not found or phone number not available.");
+            }
+        }
+        const usersDiv = document.getElementById('users');
+        const userList = document.createElement('ul');
+        userData.forEach(user => {
+          const userItem = document.createElement('li');
+          userItem.textContent = `Username: ${user.username}, Phone: ${user.phoneNumber}`;
+          userList.appendChild(userItem);
+        });
+        usersDiv.appendChild(userList);
+<<<<<<< HEAD
+        function displayMsg() {
+        }
+        signupForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const username = document.getElementById("signup-username").value;
+            const password = document.getElementById("signup-password").value;
+            const phoneNumber = document.getElementById("signup-phone").value;
+            // Example: Add user data to the list
+            const userItem = document.createElement("li");
+            userItem.textContent = `Username: ${username}, Password: ${password}, Phone: ${phoneNumber}`;
+            userList.appendChild(userItem);
+        });
+        signinForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const username = document.getElementById("signin-username").value;
+            const password = document.getElementById("signin-password").value;
+        });
+=======
         // Initial user list display
         updateUserDataList();
+>>>>>>> 9600ef629e2f4d256c393974fa207811fae36485
