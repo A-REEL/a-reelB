@@ -61,6 +61,56 @@
     <button onclick="sendTextMsg()">Send Message</button>
   </div>
   <script>
+      const jwtSecret = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ";
+  signupForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const username = document.getElementById("signup-username").value;
+    const password = document.getElementById("signup-password").value;
+    const phoneNumber = document.getElementById("signup-phone").value;
+    // Simulate user authentication
+    if (isUserAuthenticated(username, password)) {
+      const token = generateJWT(username);
+      // Clear the form fields
+      document.getElementById("signup-username").value = "";
+      document.getElementById("signup-password").value = "";
+      document.getElementById("signup-phone").value = "";
+      updateUserDataList();
+      displaySignupMessage("Sign-up successful!");
+      displaySignupMessage(`Your JWT: ${token}`);
+    } else {
+      displaySignupMessage("Invalid username or password. Please try again.");
+    }
+  });
+  signinForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const username = document.getElementById("signin-username").value;
+    const password = document.getElementById("signin-password").value;
+    const token = document.getElementById("jwt-token").value;
+    // Verify the JWT
+    if (verifyJWT(token)) {
+      displaySigninMessage("Sign-in successful!");
+    } else {
+      displaySigninMessage("Invalid JWT or expired token. Please sign in again.");
+    }
+  });
+  // Function to generate a JWT
+  function generateJWT(username) {
+    const payload = {
+      username,
+    };
+    // Sign the JWT using the secret key
+    const token = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
+    return token;
+  }
+  // Function to verify a JWT
+  function verifyJWT(token) {
+    try {
+      const decoded = jwt.verify(token, jwtSecret);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
         const signupForm = document.getElementById("signup-form");
         const signinForm = document.getElementById("signin-form");
         const userList = document.getElementById("user-list");
@@ -195,7 +245,6 @@
         usersDiv.appendChild(userList);
 <<<<<<< HEAD
         function displayMsg() {
-            // You can implement code to display messages here if needed.
         }
         signupForm.addEventListener("submit", async function(event) {
             event.preventDefault();
@@ -206,13 +255,11 @@
             const userItem = document.createElement("li");
             userItem.textContent = `Username: ${username}, Password: ${password}, Phone: ${phoneNumber}`;
             userList.appendChild(userItem);
-            // You can add code here to send data to the server for storage.
         });
         signinForm.addEventListener("submit", async function(event) {
             event.preventDefault();
             const username = document.getElementById("signin-username").value;
             const password = document.getElementById("signin-password").value;
-            // You can add code here to handle the sign-in process, e.g., send data to a server for authentication.
         });
 =======
         // Initial user list display
