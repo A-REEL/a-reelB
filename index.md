@@ -3,22 +3,11 @@
     <h1>A-REEL Board</h1>
     <body>
     <div class="typing-container">
-        <span id="text" style="font-family: 'nexa', Arial, sans-serif"></span>
     </div>
     </body>
 </div>
 
 <style>
-.typing-container {
-    font-size: 35px;
-    font-family: "nexa", Arial, sans-serif;
-    white-space: nowrap;
-    overflow: hidden;
-    padding-top:50px;
-    text-align: center;
-    animation: typing 2s steps(30, end);
-}
-
 
 @keyframes typing {
     0% {

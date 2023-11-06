@@ -1,19 +1,3 @@
-/*let userData = [
-    { username: "aliya.tang", phoneNumber: "+13608238458" },
-    { username: "user2", phoneNumber: "+9876543210" },
-    // add more user data...
-];
-
-function findPhoneNumberByUsername(username) {
-    // find user object with the matching username
-    const user = userData.find((user) => user.username === username);
-    if (user) {
-        return user.phoneNumber;
-    }
-    return null; // return null if username not found
-}
-*/
-
 class User {
     initialize(username, phoneNumber) {
         this.username = username;
