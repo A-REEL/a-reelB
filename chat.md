@@ -77,10 +77,30 @@
                 } else {
                     chatHistory.innerHTML += `<div>Error: ${error.message}</div>`;
                 }
-            } finally {
+            } finally {S
                 clearTimeout(timeoutId);
             }
-        }
+            
+            // SQL POSTING
+
+            try {
+                const post = await fetch('https://your-backend-domain.com/api/meetings/add-meeting', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                     },
+                    body: JSON.stringify(userInput),
+                    });
+
+                const sqldata = await post.json();
+
+                const responseText = await post.text();
+                console.log(responseText);
+
+            } catch (error) {
+                console.log("mf")
+            }
     });
+
 </script>
 

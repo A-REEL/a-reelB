@@ -20,7 +20,7 @@ public class Meetings {
 
     private String description;
 
-    // starting jokes
+
     public static String[] init() {
         Meetings meeting = new Meetings();
         meeting.setMeetingName("meeting");
