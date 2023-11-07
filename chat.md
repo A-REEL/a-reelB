@@ -84,7 +84,7 @@
             // SQL POSTING
 
             try {
-                const post = await fetch('https://your-backend-domain.com/api/meetings/add-meeting', {
+                const post = await fetch('/api/meetings/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
