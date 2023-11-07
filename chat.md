@@ -81,7 +81,7 @@
             // SQL POSTING
 
             try {
-                const post = await fetch('http://localhost:8085', {
+                const post = await fetch('http://localhost:808/newmeeting', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
