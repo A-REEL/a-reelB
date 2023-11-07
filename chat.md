@@ -9,9 +9,9 @@
             width: 200px;
         }
         #chat-container {
-            text-align: center; 
+            text-align: center;
         }
-         #send-button {
+        #send-button {
             display: block;
             margin: 20px auto 0;
         }
@@ -29,16 +29,16 @@
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById('send-button').addEventListener('click', sendMessage);
-        
+
         function removeSpecialCharsAtStart(str) {
-           return str.replace(/^[^a-zA-Z]+/, '');
+            return str.replace(/^[^a-zA-Z]+/, '');
         }
 
         function formatResponse(responseText) {
-        // Add a newline before the key phrase "%%Action Items%%"
+            // Add a newline before the key phrase "%%Action Items%%"
             return responseText.replace(/----/g, '\n----');
         }
-        
+
         async function sendMessage() {
             const userInput = document.getElementById('user-input').value;
             const chatHistory = document.getElementById('chat-history');
@@ -68,39 +68,38 @@
                 // Display Chatbot's response
                 const formattedResponse = formatResponse(removeSpecialCharsAtStart(data.result));
                 chatHistory.innerHTML += `<div>Bot: ${formattedResponse}</div>`;
-                //const responseText = await response.text();
-                //console.log(responseText);
-
             } catch (error) {
                 if (error.name === 'AbortError') {
                     chatHistory.innerHTML += `<div>Error: Request timed out</div>`;
                 } else {
                     chatHistory.innerHTML += `<div>Error: ${error.message}</div>`;
                 }
-            } finally {S
+            } finally {
                 clearTimeout(timeoutId);
             }
-            
+
             // SQL POSTING
 
             try {
-                const post = await fetch('/api/meetings/', {
+                const post = await fetch('http://localhost:8080', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                     },
+                    },
                     body: JSON.stringify(userInput),
-                    });
+                });
 
-                const sqldata = await post.json();
-
-                const responseText = await post.text();
-                console.log(responseText);
-
+                if (post.status === 201) {
+                    const sqldata = await post.json();
+                    const responseText = await post.text();
+                    console.log(responseText);
+                } else {
+                    console.log('Error posting to SQL');
+                }
             } catch (error) {
-                console.log("mf")
+                console.log('Error: ' + error);
             }
+        }
     });
-
 </script>
 
