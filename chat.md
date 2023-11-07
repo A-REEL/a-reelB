@@ -81,7 +81,7 @@
             // SQL POSTING
 
             try {
-                const post = await fetch('http://localhost:8080', {
+                const post = await fetch('http://localhost:8085', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
